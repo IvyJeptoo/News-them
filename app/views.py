@@ -7,3 +7,4 @@ from .request import get_headlines
 def index():
     news_headlines = get_headlines()
     return render_template('headlines.html', headlines = news_headlines)
+

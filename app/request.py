@@ -69,7 +69,26 @@ def get_sources():
             sources_results = process_sources(sources_results_list)
             
     return sources_results
+
+def process_sources(sources_list):
+    '''
+    create method to process fetched sources
+    '''    
+    sources_results =[]
+    for sources_item in sources_list:
         
+        name = sources_item.get('name')
+        description = sources_item.get('description')
+        url = sources_item.get('url')
+        
+        if description and name :
+            sources_instance = Sources(name,description, url)
+            sources_results.append(sources_instance)  
+            
+    return sources_results
+    
+        
+     
     
     
     
