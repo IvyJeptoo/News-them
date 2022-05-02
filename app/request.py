@@ -3,13 +3,14 @@ import urllib.request,json
 from .model import headlines
 
 Headlines = headlines.Headlines
+Sources = headlines.Sources
 
 api_key = app.config['NEWS_API_KEY']
 base_url = app.config['HEADLINES_API_BASE_URL']
-
+source_url = app.config['SOURCE_BASE_URL']
 def get_headlines():
     '''
-    
+    method to get all the headlines
     '''
     get_headlines_url = base_url.format(api_key)
     
@@ -28,7 +29,7 @@ def get_headlines():
     
 def process_headlines(headlines_list):
     '''
-    function 
+    function to process the acquired headlines
     '''
     
     headlines_results =[]
@@ -50,10 +51,24 @@ def process_headlines(headlines_list):
         # print(headlines_results)   
     return headlines_results
         
-def get_headline():
+def get_sources():
     '''
-    function to get specific news headline
+    function to sources
     '''
+    get_sources_url = source_url.format(api_key)
+    
+    with urllib.request.urlopen(get_sources_url) as url:
+        get_sources_data = url.read()
+        get_sources_response = json.loads(get_sources_data)
+        # print(get_headlines_response)
+        
+        sources_results = None
+        
+        if get_sources_response['sources']:
+            sources_results_list = get_sources_response['sources']
+            sources_results = process_sources(sources_results_list)
+            
+    return sources_results
         
     
     
