@@ -1,15 +1,57 @@
 {% macro displayNewsHeadlines(headlines) %}
 
-{% for headline in headlines %}
-<h3>{{ headline.author }}</h3>
-<p>{{ headlines.title }}</p>
-<p>{{ headline.description }}</p>
-<a href="{{headline.url}}">more</a>
-<img src="{{headline.urlToImage}}" alt="">
-<!-- <p>{{ headline.urlToImage }}</p> -->
-<p>{{ headline.publishedAt }}</p>
+<div class="container-fluid landing">
+<div class="row">
+        {% for headline in headlines %}
+    <div class="col-md-4 d-flex ">
+        <div class="card" style="width: 18rem;">
+            <h4>{{headline.source.name}}</h4>
+            <img src="{{headline.urlToImage}}" class="card-img-top" alt="..." style="width: 200px;">
+            <div class="card-body">
+                <a href="{{ url }}">
+                    <h2 class="card-title"><b> {{ headline.title }} </b></h2>
+                </a>
+                <h3 class="card-text">{{headline.description}}</h3>
+                <p class="card-text">{{headline.publishedAt}}</p>
+                <a href="{{headline.url}}" class="btn btn-primary">full story</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+  
+ {% endmacro %}
+ <!-- <div class="container-fluid landing">
+     <div class="row">
+         {% for headline in headlines %}
+         <div class="col-md-4 d-flex justify-content-center">
+             <div class="card mb-3 bg-dark text-white">
+                 <img src="{{ headline.urlToImage }}" class="card-img image-fluid" alt="...">
+                 <div class="card-body">
+                     <p class="card-text source">{{ headline.source.name}}</p>
+                     <a href="{{ url }}">
+                         <h2 class="card-title"><b> {{ headline.title }} </b></h2>
+                     </a>
+                     <p class="card-text">{{ headline.description }}</p>
+                     <p class="card-text">Author:{{ headline.author }}</p>
+                     
+                     
+                     
+                 </div>
+                 <div class="card-footer">
+                     <p class="card-text published">Date Published: {{ headline.publishedAt }}</p>
+                 </div>
+             </div>
+         </div>
+         {% endfor %}
+     </div>
+ </div> -->
+ 
 
-{% endfor %}
 
 
-{% endmacro %}
+
+
+
+

@@ -27,10 +27,13 @@ def get_headlines():
     return headlines_results
     
 def process_headlines(headlines_list):
+    '''
+    function 
+    '''
     
     headlines_results =[]
     for headline_item in headlines_list:
-        # name = headline_item.get('name')
+        source = headline_item.get('source')
         author = headline_item.get('author')
         title = headline_item.get('title')
         description = headline_item.get('description')
@@ -39,14 +42,18 @@ def process_headlines(headlines_list):
         publishedAt = headline_item.get('publishedAt')
         
         
-        if urlToImage and author:
-            headlines_instance = Headlines(author, title, description, url, urlToImage, publishedAt)
+        if urlToImage and author :
+            headlines_instance = Headlines(source,author, title, description, url, urlToImage, publishedAt)
             # headlines_instance = Headlines(headlines['name'],headlines['author'],headlines['url'],headlines['urlToImage'],headlines['title'],headlines['description'],headlines['publishedAt'])
             headlines_results.append(headlines_instance)
         # print(headlines_instance)
         # print(headlines_results)   
     return headlines_results
         
+def get_headline():
+    '''
+    function to get specific news headline
+    '''
         
     
     
