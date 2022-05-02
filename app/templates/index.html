@@ -1,13 +1,6 @@
+{% import 'macros.html' as macro}
+
 <h1>headlines</h1>
 <ul>
-    {% for headline in headlines %} 
-    <li>{{ headline.author }}</li>
-    <p>{{ headlines.title }}</p>
-    <p>{{ headline.description }}</p>
-     <a href="{{headline.url}}" >more</a>
-     <img src="{{headline.urlToImage}}" alt="">
-    <!-- <p>{{ headline.urlToImage }}</p> -->
-    <p>{{ headline.publishedAt }}</p>
-    {% endfor %}
-
+    {{macro.displayNewsHeadlines(headlines)}}
 </ul>
