@@ -1,12 +1,12 @@
 {% macro displayNewsHeadlines(headlines) %}
 
-<div class="container-fluid landing">
-<div class="row">
+<div class="container" ">
+<div class="row" style=" width: 70vw">
         {% for headline in headlines %}
-    <div class="col-md-4 d-flex ">
-        <div class="card" style="width: 18rem;">
+    <div class="col-md-4 " style="display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important;">
+        <div class="card" style="width: 40rem;">
+            <img src="{{headline.urlToImage}}" class="card-img-top" alt="..." style="width: 40rem; ">
             <h4>{{headline.source.name}}</h4>
-            <img src="{{headline.urlToImage}}" class="card-img-top" alt="..." style="width: 200px;">
             <div class="card-body">
                 <a href="{{ url }}">
                     <h2 class="card-title"><b> {{ headline.title }} </b></h2>
