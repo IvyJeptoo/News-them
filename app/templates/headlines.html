@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 
-
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/headlines.css')}}">
+{% endblock %}
 {% block content %}
 
 <h1>headlines</h1>
-<ul>
+
     {{macro.displayNewsHeadlines(headlines)}}
-</ul>
+
 {% endblock %}
 

@@ -7,7 +7,7 @@ Sources = headlines.Sources
 
 api_key = app.config['NEWS_API_KEY']
 base_url = app.config['HEADLINES_API_BASE_URL']
-source_url = app.config['SOURCE_BASE_URL']
+source_url = app.config['SOURCES_BASE_URL']
 def get_headlines():
     '''
     method to get all the headlines
@@ -43,7 +43,7 @@ def process_headlines(headlines_list):
         publishedAt = headline_item.get('publishedAt')
         
         
-        if urlToImage and author :
+        if urlToImage and author and description:
             headlines_instance = Headlines(source,author, title, description, url, urlToImage, publishedAt)
             # headlines_instance = Headlines(headlines['name'],headlines['author'],headlines['url'],headlines['urlToImage'],headlines['title'],headlines['description'],headlines['publishedAt'])
             headlines_results.append(headlines_instance)

@@ -11,5 +11,5 @@ def index():
 @app.route('/sources')
 def source():
     news_sources = get_sources()
-    return render_template('sources.html', sources = news_sources)
+    return render_template('source.html', sources = news_sources)
         

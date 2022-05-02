@@ -1,27 +1,53 @@
 {% macro displayNewsHeadlines(headlines) %}
 
-<div class="container" ">
-<div class="row" style=" width: 70vw">
+<div class="container-fluid" >
+<div class="row" >
         {% for headline in headlines %}
-    <div class="col-md-4 " style="display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important;">
+    <div class="col-md-4 d-flex"
+        style="justify-content: space-evenly !important; align-items: center !important; gap: 20px !important; padding-bottom: 30px !important;">
         <div class="card" style="width: 40rem;">
-            <img src="{{headline.urlToImage}}" class="card-img-top" alt="..." style="width: 40rem; ">
+            <img src="{{headline.urlToImage}}" class="card-img-top" alt="..." style="width: 40rem; height: 30rem;">
             <h4>{{headline.source.name}}</h4>
             <div class="card-body">
                 <a href="{{ url }}">
-                    <h2 class="card-title"><b> {{ headline.title }} </b></h2>
+                    <h3 class="card-title"><b> {{ headline.title|truncate(50) }} </b></h3>
                 </a>
-                <h3 class="card-text">{{headline.description}}</h3>
-                <p class="card-text">{{headline.publishedAt}}</p>
-                <a href="{{headline.url}}" class="btn btn-primary">full story</a>
+                <h5 class="card-text">{{headline.description|truncate(100)}}</h5>
+                <p>Author: {{headline.author|truncate(20)}}</p>
+                <p class="card-text">Published at:{{headline.publishedAt}}</p>
+                <a href="{{headline.url}}" class="btn  btn-primary">Read full story</a>
             </div>
         </div>
-        {% endfor %}
     </div>
+    {% endfor %}
 </div>
 </div>
   
  {% endmacro %}
+
+ {% macro displayNewsSources(sources) %}
+ <div class="container">
+     <div class="row">
+         {% for source in sources %}
+         <div class="col-md-3 d-flex" style="justify-content: center !important; align-items: center !important; gap: 20px !important;">
+             <div class="card" >
+                 <h3>{{source.name}}</h3>
+                 <div class="card-body">
+                     <h5 class="card-text">{{source.description|truncate(100)}}</h5>                   
+                     
+                     <button type="button" class="btn btn-dark btn-sm"><a href="{{source.url}}">more</a></button>
+                     
+                 </div>
+             </div>
+         </div>
+         {% endfor %}
+
+     </div>
+ </div>
+      
+
+
+ {%endmacro %}
  <!-- <div class="container-fluid landing">
      <div class="row">
          {% for headline in headlines %}
