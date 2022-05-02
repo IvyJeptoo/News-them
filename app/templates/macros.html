@@ -1,15 +1,15 @@
 {% macro displayNewsHeadlines(headlines) %}
 
-    {% for headline in headlines %}
-         <h3>{{ headline.author }}</h3>
-         <p>{{ headlines.title }}</p>
-         <p>{{ headline.description }}</p>
-         <a href="{{headline.url}}">more</a>
-         <img src="{{headline.urlToImage}}" alt="">
-         <!-- <p>{{ headline.urlToImage }}</p> -->
-         <p>{{ headline.publishedAt }}</p>
+{% for headline in headlines %}
+<h3>{{ headline.author }}</h3>
+<p>{{ headlines.title }}</p>
+<p>{{ headline.description }}</p>
+<a href="{{headline.url}}">more</a>
+<img src="{{headline.urlToImage}}" alt="">
+<!-- <p>{{ headline.urlToImage }}</p> -->
+<p>{{ headline.publishedAt }}</p>
 
-    {% endfor %}
-        
+{% endfor %}
+
 
 {% endmacro %}
