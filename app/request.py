@@ -12,7 +12,7 @@ def configure_request(app):
     global api_key,base_url,source_url
     api_key = app.config['NEWS_API_KEY']
     base_url = app.config['HEADLINES_API_BASE_URL']
-    # source_url = app.config['SOURCES_URL']
+    source_url = app.config['SOURCES_URL']
 
 def get_headlines():
     '''
