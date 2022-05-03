@@ -1,0 +1,9 @@
+button{
+    background-color: black;
+    border-radius: 10%;
+}
+.card{
+    border: 2px solid rgb(95, 94, 94);
+    margin-bottom: 20px;
+    padding: 5px;
+}

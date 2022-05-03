@@ -1,3 +1,4 @@
+<script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 {% macro displayNewsHeadlines(headlines) %}
 
 <div class="container-fluid" >
@@ -7,7 +8,7 @@
         style="justify-content: space-evenly !important; align-items: center !important; gap: 20px !important; padding-bottom: 30px !important;">
         <div class="card" style="width: 40rem;">
             <img src="{{headline.urlToImage}}" class="card-img-top" alt="..." style="width: 40rem; height: 30rem;">
-            <h4>{{headline.source.name}}</h4>
+            <h4 style="color: black; font-family: 'Jost', sans-serif; font-size: large; font-weight: 600;">{{headline.source.name}}</h4>
             <div class="card-body">
                 <a href="{{ url }}">
                     <h3 class="card-title"><b> {{ headline.title|truncate(50) }} </b></h3>
@@ -29,13 +30,15 @@
  <div class="container">
      <div class="row">
          {% for source in sources %}
-         <div class="col-md-3 d-flex" style="justify-content: center !important; align-items: center !important; gap: 20px !important;">
+         <div class="col-md-4 d-flex" style="justify-content: center !important; align-items: center !important; gap: 20px !important;">
              <div class="card" >
-                 <h3>{{source.name}}</h3>
+                 <h3 style="font-weight: 600;"><span class="iconify"
+                         data-icon="emojione-monotone:globe-showing-americas" data-width="80"
+                         data-height="80"></span> &nbsp;&nbsp;&nbsp;&nbsp; {{source.name}}</h3>
                  <div class="card-body">
-                     <h5 class="card-text">{{source.description|truncate(100)}}</h5>                   
+                     <h5 class="card-text">{{source.description|truncate(200)}}</h5>                   
                      
-                     <button type="button" class="btn btn-dark btn-sm"><a href="{{source.url}}">more</a></button>
+                     <button type="button" "><a style="color: white;" href="{{source.url}}">View all articles</a></button>
                      
                  </div>
              </div>

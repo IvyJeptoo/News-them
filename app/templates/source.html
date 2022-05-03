@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/sources.css')}}">
+{% endblock %}
+
+
 {% block content %}
-<h1>Sources</h1>
+<h1 style="text-align: center; font-weight: 900;">News Sources</h1>
  {{ macro.displayNewsSources(sources) }}
 
 {% endblock %}

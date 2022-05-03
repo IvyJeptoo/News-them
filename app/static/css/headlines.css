@@ -1,3 +1,6 @@
-card{
+.card{
     background-color: rgb(196, 193, 193);
+}
+h5{
+    font-family: 'Oleo Script Swash Caps', cursive;;
 }
