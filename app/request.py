@@ -6,7 +6,7 @@ from .models import Headlines,Sources
 
 api_key = None
 base_url = None
-# source_url = None
+source_url = None
 
 def configure_request(app):
     global api_key,base_url,source_url
