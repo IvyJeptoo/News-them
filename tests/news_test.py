@@ -1,5 +1,5 @@
 import unittest
-from model import Headlines, Sources
+from app.models import Headlines, Sources
 
 
 class HeadlinesTest(unittest.TestCase):
@@ -30,6 +30,6 @@ class Sources (unittest.TestCase):
         self.assertTrue(isinstance(self.new_Source, Sources))
         
         
-if __name__ =='__main__':
-    unittest.main()
+# if __name__ =='__main__':
+#     unittest.main()
     
